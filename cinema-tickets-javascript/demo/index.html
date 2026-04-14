@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+
+        <title> Cinema Tickets Demo </title>
+        <link rel="stylesheet" href="./styles.css" />
+
+    </head>
+
+    <body>
+
+        <main class="container">
+
+            <section class="card">
+                <h1>Calculator</h1>
+
+                    <p class="subtitle">
+                        Visual demo to calculate ticket cost and seat reservation
+                    </p>
+
+                    <form id="ticketForm" class="Form?">
+                        <div class="field">
+                            <label for="accountId">Account ID</label>
+                            <input type="number" id="accountId" min="1" placeholder="Enter account ID" required />
+                        </div>
+                        
+                    <div class="ticket-grid">
+                        <div class="field">
+                            <label for="ADULT"> Adult Tickets (£25)</label>
+                            <input type="number" id="ADULT" min="0" value="0" />
+                        </div>
+
+                        <div class="field">
+                            <label for="CHILD">Child Tickets (£15)</label>
+                            <input type="number" id="CHILD" min="0" value="0">
+                        </div>
+
+                        <div class="field">
+                            <label for="INFANT">Infant Tickets (£0)</label>
+                            <input type="number" id="CHILD" min="0" value="0">
+                        </div>
+                    </div>
+
+                        <button type="submit" class="btn">Calculate</button>
+                        
+                    </form>
+
+                    <section id="resultBox" class="result hidden">
+                        <h2>Result</h2>
+                        <div class="result-row">
+                            <span>Total Amount</span>
+                            <strong id="totalAmount">£0</strong>
+                        </div>
+
+                        <div class="result-row">
+                            <span>Total Seats</span>
+                            <strong id="totalSeats">0</strong>
+                        </div>
+                    </section>
+
+                    <section id="errorBox" class="error hidden">
+                        <h2>Validation Error</h2>
+                        <p id="errorMessage"></p>
+                    </section>
+                
+            </section>
+
+        </main>
+        <script type="module" src=".app.js"></script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
