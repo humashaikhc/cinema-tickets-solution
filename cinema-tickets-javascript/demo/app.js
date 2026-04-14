@@ -58,7 +58,7 @@ form.addEventListener("submit", (event) => {
     console.log('Before mutation:', testRequest.getNoOfTickets());
 
 try{
-    testRequest.getNoOfTicketsnoOfTickets = 99;
+    testRequest.getNoOfTickets = 99;
 }catch (e){
     console.error('Mutation error:', e.message);
 }
