@@ -1,4 +1,4 @@
-# Cinema Tickets Solution
+# Cinema Tickets Solution (Javascript)
 
 ## Overview
 
