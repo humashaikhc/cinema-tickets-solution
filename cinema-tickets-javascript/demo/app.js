@@ -52,20 +52,7 @@ form.addEventListener("submit", (event) => {
     errorBox.classList.remove("hidden");
   }
   
-//Testing Immutability using console results
 
-  const testRequest = new TicketTypeRequest('ADULT', 2);
-    console.log('Before mutation:', testRequest.getNoOfTickets());
-
-try{
-    testRequest.getNoOfTickets = 99;
-}catch (e){
-    console.error('Mutation error:', e.message);
-}
-console.log('After mutation:', testRequest.getNoOfTickets());
-console.log('Frozen:', Object.isFrozen(testRequest));
-
-});
 
 function hideMessages() {
   resultBox.classList.add("hidden");
