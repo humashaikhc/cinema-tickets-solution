@@ -10,19 +10,15 @@ const totalAmountEl = document.getElementById("totalAmount");
 const totalSeatsEl = document.getElementById("totalSeats");
 const errorMessageEl = document.getElementById("errorMessage");
 
-console.log("app.js loaded");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log("SUBMIT FIRED");
   hideMessages();
 
   const accountId = Number(document.getElementById("accountId").value);
   const adult = Number(document.getElementById("adult").value);
   const child = Number(document.getElementById("child").value);
   const infant = Number(document.getElementById("infant").value);
-
-  console.log("Input values:", { accountId, adult, child, infant });
 
   const ticketTypeRequests = [];
 
@@ -38,7 +34,6 @@ form.addEventListener("submit", (event) => {
     ticketTypeRequests.push(new TicketTypeRequest("INFANT", infant));
   }
 
-  console.log("Ticket Requests", ticketTypeRequests);
 
   try {
     RequestValidator.validate(accountId, ticketTypeRequests);
@@ -46,19 +41,30 @@ form.addEventListener("submit", (event) => {
     const totalAmount = TicketCalculator.calculate(ticketTypeRequests);
     const totalSeats = SeatCalculator.calculate(ticketTypeRequests);
 
-    console.log("Calculated results:", { totalAmount, totalSeats });
-
     totalAmountEl.textContent = `£${totalAmount}`;
     totalSeatsEl.textContent = totalSeats;
     resultBox.classList.remove("hidden");
 
-    console.log("Result displayed successfully");
   } catch (error) {
     console.error("Validation/Calculation error:", error.message);
 
     errorMessageEl.textContent = error.message;
     errorBox.classList.remove("hidden");
   }
+  
+//Testing Immutability using console results
+
+  const testRequest = new TicketTypeRequest('ADULT', 2);
+    console.log('Before mutation:', testRequest.getNoOfTickets());
+
+try{
+    testRequest.getNoOfTicketsnoOfTickets = 99;
+}catch (e){
+    console.error('Mutation error:', e.message);
+}
+console.log('After mutation:', testRequest.getNoOfTickets());
+console.log('Frozen:', Object.isFrozen(testRequest));
+
 });
 
 function hideMessages() {
